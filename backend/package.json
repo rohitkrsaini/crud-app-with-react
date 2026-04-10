@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Rohit Saini",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server db.json"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.15"
+  }
+}
