@@ -1,16 +1,28 @@
 {
   "user": [
     {
-      "name": "test ",
-      "email": "rohit.rksaini28@gmail.com",
-      "password": "1234",
-      "id": "uyATawa9BwY"
-    },
-    {
       "name": "rahul",
       "email": "rohit.rksaini28@gmail.com",
       "password": "1234",
       "id": "NOGtvMrIm3k"
+    },
+    {
+      "name": "rohit",
+      "email": "rohit.rksaini28@gmail.com",
+      "password": "12345",
+      "id": "k-TtrZhGUFo"
+    },
+    {
+      "name": "mohit",
+      "email": "mohit@google.com",
+      "password": "12345",
+      "id": "u6pTtDOc5nA"
+    },
+    {
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "456987",
+      "id": "SKwbZFX4fFM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
