@@ -25,7 +25,7 @@ const Create = () => {
         email,
         password,
       };
-      await axios.post("http://localhost:3000/user", payload);
+      await axios.post("https://crud-app-with-react-1.onrender.com/user", payload);
       toast.success("User created successfully.");
       setName("");
       setEmail("");

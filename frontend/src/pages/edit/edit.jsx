@@ -20,7 +20,7 @@ const Edit = () => {
 
   const getData = async() =>{
       try {
-        const {data} = await axios.get(`http://localhost:3000/user/${id}`);
+        const {data} = await axios.get(`https://crud-app-with-react-1.onrender.com/user/${id}`);
         setName(data.name);
         setEmail(data.email);
         setPassword(data.password);
@@ -42,7 +42,7 @@ const Edit = () => {
         email,
         password,
       };
-      await axios.put("http://localhost:3000/user/"+id, payload);
+      await axios.put(`https://crud-app-with-react-1.onrender.com/user/${id}`, payload);
       toast.success("User Updated successfully.");
     } catch (err) {
       console.error("Debug, error while creating", err);
