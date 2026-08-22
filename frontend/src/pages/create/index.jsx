@@ -20,27 +20,34 @@ const Create = () => {
   const postData = async () => {
     try {
       setIsLoading(true);
+
       const payload = {
         name,
         email,
         password,
       };
-      await axios.post("https://crud-app-with-react-1.onrender.com/user", payload);
+
+      await axios.post(
+        "https://crud-app-with-react-1.onrender.com/user",
+        payload
+      );
+
       toast.success("User created successfully.");
+
       setName("");
       setEmail("");
       setPassword("");
     } catch (err) {
       console.error("Debug, error while creating", err);
-      toast.error("Error while creating toast");
+      toast.error("Error while creating user");
     } finally {
       setIsLoading(false);
     }
   };
 
   const onSubmitHandler = (e) => {
-    console.log("called");
     e.preventDefault();
+
     if (isValidData()) {
       postData();
     } else {
@@ -49,58 +56,99 @@ const Create = () => {
   };
 
   return (
-    <div className="flex flex-col m-8">
-      <h2>Create</h2>
-      <div className="flex justify-end mb-8">
-        <Link className="p-2 bg-blue-400 rounded " to="/">
+    <div className="min-h-screen bg-gray-100 p-8">
+
+      {/* Top Section */}
+      <div className="flex justify-between items-center mb-8">
+        <h2 className="text-2xl font-bold text-gray-800">
+          Create User
+        </h2>
+
+        <Link
+          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+          to="/"
+        >
           Go to Users
         </Link>
       </div>
-      <form className="flex-col text-center " onSubmit={onSubmitHandler}>
-        <label htmlFor="name">Name </label>
-        <input
-          className="border-2"
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-        <br />
-        <br />
 
-        <label htmlFor="email">Email </label>
-        <input
-          className="border-2"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <br />
+      {/* Form Card */}
+      <div className="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg">
 
-        <label htmlFor="password">Password </label>
-        <input
-          className="border-2"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <br />
+        <h3 className="text-xl font-semibold text-center text-gray-700 mb-6">
+          Add New User
+        </h3>
 
-        <button
-          className={`bg-violet-400 p-2 rounded disabled:bg-gray-100`}
-          type="submit"
-          disabled={!isValidData()}
-        >
-          {isLoading && (
-            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-          )}
-          {isLoading ? "Loading..." : "Submit"}
-        </button>
-      </form>
+        <form onSubmit={onSubmitHandler}>
+
+          {/* Name */}
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Name
+            </label>
+
+            <input
+              id="name"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              type="text"
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+
+          {/* Email */}
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Email
+            </label>
+
+            <input
+              id="email"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          {/* Password */}
+          <div className="mb-6">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Password
+            </label>
+
+            <input
+              id="password"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            className="w-full bg-blue-500 text-white py-2.5 rounded-lg font-medium hover:bg-blue-600 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
+            type="submit"
+            disabled={!isValidData() || isLoading}
+          >
+            {isLoading ? "Loading..." : "Create User"}
+          </button>
+
+        </form>
+      </div>
     </div>
   );
 };
