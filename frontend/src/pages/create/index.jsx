@@ -57,7 +57,7 @@ const Create = () => {
         </Link>
       </div>
       <form className="flex-col text-center " onSubmit={onSubmitHandler}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">Name </label>
         <input
           className="border-2"
           type="text"
@@ -68,7 +68,7 @@ const Create = () => {
         <br />
         <br />
 
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email </label>
         <input
           className="border-2"
           type="email"
@@ -79,7 +79,7 @@ const Create = () => {
         <br />
         <br />
 
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password </label>
         <input
           className="border-2"
           type="password"
